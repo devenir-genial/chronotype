@@ -3,10 +3,11 @@
 # Seul le contenu du dossier site/ est publié : le README et la configuration
 # du dépôt ne sont jamais copiés dans le dossier public.
 #
-# DEPLOYPATH doit correspondre à la « racine du document » du sous-domaine
-# (cPanel > Domaines). Chez o2switch : /home/<utilisateur>/chronotype.devenirgenial.com
+# Racine du sous-domaine chez o2switch : $HOME/chronotype.devenirgenial.com
+# ($HOME = /home2/<utilisateur> ; le nom d'utilisateur n'est pas écrit ici car le dépôt est public).
+# Si le dossier n'existe pas, le déploiement s'arrête au lieu d'en créer un au mauvais endroit.
 deployment:
   tasks:
     - export DEPLOYPATH=$HOME/chronotype.devenirgenial.com/
-    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/test -d $DEPLOYPATH
     - /bin/cp -R site/. $DEPLOYPATH

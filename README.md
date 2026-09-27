@@ -40,8 +40,8 @@ Certificat HTTPS Let's Encrypt géré automatiquement par o2switch.
 ### Déploiement automatique depuis GitHub (cPanel > Git Version Control)
 
 1. **Créer** un dépôt : cloner `https://github.com/devenir-genial/chronotype.git`
-   dans un dossier **hors** de la racine web, par exemple `/home/<utilisateur>/repositories/chronotype`.
-2. Vérifier que la racine du sous-domaine (cPanel > Domaines) est bien `/home/<utilisateur>/chronotype.devenirgenial.com` ;
+   dans un dossier **hors** de la racine web, par exemple `/home2/<utilisateur>/repositories/chronotype`.
+2. Vérifier que la racine du sous-domaine (cPanel > Domaines) est bien `/home2/<utilisateur>/chronotype.devenirgenial.com` ;
    sinon, adapter `DEPLOYPATH` dans `.cpanel.yml`.
 3. À chaque mise à jour : pousser sur GitHub, puis dans cPanel > Git Version Control > **Gérer** >
    onglet « Pull or Deploy » : **Update from Remote**, puis **Deploy HEAD Commit**.
