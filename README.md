@@ -29,13 +29,24 @@ Parcours : 46 questions en général, 26 pour un Dauphin identifié dès la part
 
 Chaque profil est accessible directement par un lien : `/#lion`, `/#ours`, `/#loup`, `/#dauphin`.
 
-## Mise en ligne
+## Mise en ligne (o2switch)
 
-1. **DNS** : chez le gestionnaire du domaine `devenirgenial.com`, créer un enregistrement pour `chronotype`
-   (CNAME vers l'hébergeur, ou A vers l'IP du serveur).
-2. **Hébergement** : copier le contenu du dossier `site/` à la racine du sous-domaine. Options possibles :
-   - hébergement mutualisé (o2switch, OVH…) : créer le sous-domaine dans le panneau et y déposer les fichiers par FTP ;
-   - Netlify / Cloudflare Pages / Vercel : glisser-déposer le dossier `site/`, puis ajouter le domaine personnalisé.
-3. Activer le **HTTPS** (Let's Encrypt, généralement automatique).
+Le site est hébergé chez o2switch (DNS et hébergement) : https://chronotype.devenirgenial.com
+Certificat HTTPS Let's Encrypt géré automatiquement par o2switch.
+
+- `site/.htaccess` : force le HTTPS, règle le cache navigateur, la compression et les en-têtes de sécurité.
+- `.cpanel.yml` : copie le contenu de `site/` vers `$HOME/chronotype.devenirgenial.com/` à chaque déploiement.
+
+### Déploiement automatique depuis GitHub (cPanel > Git Version Control)
+
+1. **Créer** un dépôt : cloner `https://github.com/devenir-genial/chronotype.git`
+   dans un dossier **hors** de la racine web, par exemple `/home/<utilisateur>/repositories/chronotype`.
+2. Vérifier que la racine du sous-domaine (cPanel > Domaines) est bien `/home/<utilisateur>/chronotype.devenirgenial.com` ;
+   sinon, adapter `DEPLOYPATH` dans `.cpanel.yml`.
+3. À chaque mise à jour : pousser sur GitHub, puis dans cPanel > Git Version Control > **Gérer** >
+   onglet « Pull or Deploy » : **Update from Remote**, puis **Deploy HEAD Commit**.
+
+Après une modification de `style.css`, `app.js` ou `data.js`, incrémenter le `?v=N` correspondant dans
+`site/index.html` pour que les navigateurs chargent la nouvelle version.
 
 Test en local : `cd site && python -m http.server 8000`, puis ouvrir http://localhost:8000.

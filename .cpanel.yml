@@ -1,0 +1,12 @@
+---
+# Déploiement cPanel (Git Version Control) pour chronotype.devenirgenial.com
+# Seul le contenu du dossier site/ est publié : le README et la configuration
+# du dépôt ne sont jamais copiés dans le dossier public.
+#
+# DEPLOYPATH doit correspondre à la « racine du document » du sous-domaine
+# (cPanel > Domaines). Chez o2switch : /home/<utilisateur>/chronotype.devenirgenial.com
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/chronotype.devenirgenial.com/
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/cp -R site/. $DEPLOYPATH
