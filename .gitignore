@@ -1,0 +1,13 @@
+# Livre source (protégé par le droit d'auteur) — ne jamais publier
+source/
+*.pdf
+
+# Système / éditeurs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Identifiants et secrets — ne jamais publier
+secret/
+.env

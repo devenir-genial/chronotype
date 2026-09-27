@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quel est ton chronotype ? | Devenir Génial</title>
+  <meta name="description" content="Découvre ton chronotype (Lion, Ours, Loup ou Dauphin) grâce à un questionnaire détaillé inspiré des travaux du Dr Michael Breus, et reçois ton programme de journée idéale.">
+  <meta property="og:title" content="Quel est ton chronotype ?">
+  <meta property="og:description" content="Lion, Ours, Loup ou Dauphin ? Fais le test et découvre à quelle heure tu es au meilleur de toi-même.">
+  <meta property="og:url" content="https://chronotype.devenirgenial.com/">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://chronotype.devenirgenial.com/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕰️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Rubik:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=7">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="https://devenirgenial.com"><img src="logo.png" alt="Devenir Génial" width="200" height="35"></a>
+      <a class="topbar-link" href="https://devenirgenial.com">Accès au site Devenir Génial</a>
+    </div>
+  </header>
+
+  <main id="app" aria-live="polite">
+    <!-- Accueil -->
+    <section id="screen-home" class="screen active">
+      <div class="hero">
+        <p class="eyebrow">Test du chronotype</p>
+        <h1>À quelle heure es&#8209;tu au meilleur de toi&#8209;même&nbsp;?</h1>
+        <p class="lead">Ton horloge biologique est inscrite dans tes gènes. Elle détermine quand tu es le plus concentré, le plus créatif, le plus sociable… et quand il vaut mieux ne rien entreprendre d'important.</p>
+        <button class="btn primary" id="start">Commencer le test</button>
+        <div id="last-result"></div>
+      </div>
+
+      <h2 class="section-title">Les 4 chronotypes</h2>
+      <p class="muted">Clique sur un animal pour découvrir son profil complet.</p>
+      <div class="animals" id="home-animals"></div>
+
+      <h2 class="section-title">Comment se déroule le test&nbsp;?</h2>
+      <p>Une quarantaine de questions (8 à 10 minutes). Chaque question est accompagnée d'une courte explication pour t'aider à répondre.</p>
+      <ol class="steps" id="home-steps"></ol>
+
+      <div class="note">
+        <strong>Pour un résultat fiable :</strong> réponds en pensant à ce que ton corps préfère naturellement, pas à ce que tes contraintes (travail, enfants…) t'imposent. Il n'y a ni bonne ni mauvaise réponse.
+      </div>
+      <button class="btn primary" id="start-2">Commencer le test</button>
+      <p class="credit">D'après la méthode du Dr Michael Breus, spécialiste du sommeil, présentée dans son livre <em>Quand&nbsp;?</em> (<em>The Power of When</em>).</p>
+    </section>
+
+    <!-- Questionnaire -->
+    <section id="screen-quiz" class="screen">
+      <div class="progress-wrap">
+        <div class="progress-label"><span id="part-label"></span><span id="count-label"></span></div>
+        <div class="progress"><div class="bar" id="bar"></div></div>
+      </div>
+      <div class="card" id="question-card">
+        <p class="part-intro" id="part-intro"></p>
+        <p class="theme" id="theme"></p>
+        <h2 id="question-text"></h2>
+        <p class="hint" id="hint"></p>
+        <div class="options" id="options"></div>
+      </div>
+      <button class="btn link" id="back">← Question précédente</button>
+    </section>
+
+    <!-- Résultat -->
+    <section id="screen-result" class="screen">
+      <div id="result"></div>
+      <div class="actions">
+        <button class="btn primary" id="print">Imprimer / enregistrer en PDF</button>
+        <button class="btn secondary" id="share">Partager le test</button>
+        <button class="btn link" id="restart">Refaire le test</button>
+      </div>
+      <p class="credit">Ce test s'appuie sur la méthode du Dr Michael Breus (<em>Quand&nbsp;?</em>, <em>The Power of When</em>). Il a une visée informative et ne remplace pas l'avis d'un professionnel de santé, en particulier en cas de troubles du sommeil persistants.</p>
+    </section>
+  </main>
+
+  <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+
+  <footer class="footer">
+    <p>Tous droits réservés © <span id="year"></span> – <a href="https://devenirgenial.com">Devenir Génial</a> · Aucune donnée n'est collectée : tes réponses restent sur ton appareil.</p>
+  </footer>
+
+  <script src="data.js?v=7"></script>
+  <script src="app.js?v=7"></script>
+</body>
+</html>
